@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Bubu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7dde2; --wine:#7b1e3f; --wine-deep:#5e1530; --wine-light:#93305a;
+  --gold:#c9973f; --paper:#fffaf5; --ink:#4a1d2e; --muted:#8a5568;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#2a1420; --muted:#e7b9c6; }
+}
+:root[data-theme="dark"]{ --bg:#2a1420; --muted:#e7b9c6; }
+*{box-sizing:border-box}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; min-height:100%; background:var(--bg);
+  font-family:'Caveat','Segoe Script','Bradley Hand',cursive; color:var(--ink);
+  display:flex; align-items:center; justify-content:center; padding:24px 16px;
+}
+.stage{display:flex;flex-direction:column;align-items:center;gap:22px;perspective:900px}
+.env{
+  position:relative; width:min(88vw,340px); aspect-ratio:3/2; background:var(--wine-deep);
+  border-radius:6px; cursor:pointer; box-shadow:0 14px 30px rgba(94,21,48,.35);
+  transition:transform .7s ease, opacity .6s ease; border:0; padding:0; font:inherit;
+}
+.env:focus-visible{outline:3px solid var(--gold);outline-offset:6px}
+.flap{
+  position:absolute; inset:0 0 auto 0; height:60%; background:var(--wine-light);
+  clip-path:polygon(0 0,100% 0,50% 100%); transform-origin:top;
+  transition:transform .7s ease; z-index:3; backface-visibility:visible;
+}
+.pocket{
+  position:absolute; inset:0; background:var(--wine); border-radius:6px; z-index:2;
+  clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);
+  display:flex; align-items:flex-end; justify-content:center; padding-bottom:14px;
+}
+.pocket span{font-size:1.9rem;color:#fbe3ea;font-weight:600}
+.seal{
+  position:absolute; left:50%; top:58%; width:46px; height:46px; margin:-23px 0 0 -23px;
+  border-radius:50%; background:var(--gold); color:#fff; z-index:4;
+  display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+  box-shadow:0 3px 8px rgba(0,0,0,.3); transition:opacity .3s ease;
+}
+.hint{color:var(--muted);font-size:1.5rem;margin:0}
+.stage.open .flap{transform:rotateX(180deg);z-index:1}
+.stage.open .seal{opacity:0}
+.stage.gone .env,.stage.gone .hint{display:none}
+
+.letter{
+  display:none; width:min(94vw,520px); background:var(--paper); border-radius:10px;
+  padding:30px 26px 26px; box-shadow:0 16px 36px rgba(94,21,48,.3);
+  border-top:6px solid var(--gold); line-height:1.4;
+}
+.letter.show{display:block;animation:rise .8s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(60px) scale(.96)}to{opacity:1;transform:none}}
+.letter h1{margin:0 0 14px;font-size:2.4rem;font-weight:600;color:var(--wine);line-height:1.1}
+.letter p{margin:0 0 14px;font-size:1.45rem}
+.letter .sign{margin:18px 0 0;font-size:1.6rem;color:var(--wine);font-weight:600}
+.again{
+  margin-top:18px; background:none; border:2px solid var(--wine); color:var(--wine);
+  border-radius:999px; padding:6px 18px; font:inherit; font-size:1.2rem; cursor:pointer;
+}
+.again:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){
+  .flap,.env{transition:none} .letter.show{animation:none}
+}
+</style>
+</head>
+<body>
+<main class="stage" id="stage">
+  <button class="env" id="env" aria-label="Open your birthday envelope">
+    <div class="flap"></div>
+    <div class="pocket"><span>To my Bubu</span></div>
+    <div class="seal" aria-hidden="true">❤</div>
+  </button>
+  <p class="hint">Tap to open 💌</p>
+
+  <article class="letter" id="letter">
+    <h1>Happy birthday, my Bubu! 🎂❤️</h1>
+    <p>I can't believe you're 28 already. You're honestly one of the best things that ever happened to me. You make my ordinary days feel special, and you always know how to make me smile, even when I'm being difficult 😄</p>
+    <p>Today, I want to say thank you. I'm here in Germany because of you. Without your help and support, I would never have made it here. You put your own career on hold for me, you studied finance with me, and even with the time zone difference, you were always there. When I lost hope of clearing my MBA, you never lost hope in me. You believed in me until I could believe in myself again. And you did my MBA assignments without ever making me ask you three times. 😄 Whatever success I have today, a big part of it is yours.</p>
+    <p>So on your 28th birthday, my wish is for us. I wish for success together, for happiness together, and for good health for you above everything else. Please eat properly, sleep well, and take care of yourself, because you mean the world to me. 🤍</p>
+    <p>I also pray that you get a really good job at a great product company, a place that values you and gives you the growth and respect you deserve.</p>
+    <p>Thank you for being with me in every part of my life, my love. I'll always be right beside you, cheering for you, just like you did for me.</p>
+    <p>Eat lots of cake today and enjoy every moment. 🍰</p>
+    <p class="sign">I love you so much, my Bubu. Happy birthday! 😘❤️</p>
+    <button class="again" id="again">Close the envelope</button>
+  </article>
+</main>
+<script>
+(function(){
+  var stage=document.getElementById('stage'),env=document.getElementById('env'),
+      letter=document.getElementById('letter'),again=document.getElementById('again');
+  env.addEventListener('click',function(){
+    stage.classList.add('open');
+    setTimeout(function(){
+      stage.classList.add('gone');
+      letter.classList.add('show');
+      window.scrollTo(0,0);
+    },900);
+  });
+  again.addEventListener('click',function(){
+    letter.classList.remove('show');
+    stage.classList.remove('gone','open');
+  });
+})();
+</script>
+</body>
+</html>
